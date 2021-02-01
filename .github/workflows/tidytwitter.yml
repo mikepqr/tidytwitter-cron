@@ -1,0 +1,24 @@
+name: tidytwitter
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '00 05 * * *'
+
+jobs:
+  tidytwitter:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+          python-version: 3.8
+    - name: Install tidytwitter
+      run: pip install tidytwitter
+    - name: Run tidytwitter
+      env:
+          TIDYTWITTER_API_KEY: ${{ secrets.TIDYTWITTER_API_KEY }}
+          TIDYTWITTER_API_SECRET: ${{ secrets.TIDYTWITTER_API_SECRET }}
+          TIDYTWITTER_ACCESS_TOKEN: ${{ secrets.TIDYTWITTER_ACCESS_TOKEN }}
+          TIDYTWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TIDYTWITTER_ACCESS_TOKEN_SECRET }}
+      run: tidytwitter both
