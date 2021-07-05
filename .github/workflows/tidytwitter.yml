@@ -21,4 +21,4 @@ jobs:
           TIDYTWITTER_API_SECRET: ${{ secrets.TIDYTWITTER_API_SECRET }}
           TIDYTWITTER_ACCESS_TOKEN: ${{ secrets.TIDYTWITTER_ACCESS_TOKEN }}
           TIDYTWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TIDYTWITTER_ACCESS_TOKEN_SECRET }}
-      run: tidytwitter both
+      run: tidytwitter both --days 15
